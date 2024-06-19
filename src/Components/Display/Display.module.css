@@ -1,0 +1,122 @@
+.display{
+    width: 100vw;
+    height: 75vh;
+    top: 94px;
+    left: 32px;
+    gap: 0px;
+    border: 1px 0px 0px 0px;
+    opacity: 0px;
+    
+}
+
+.topdisplay{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 96vw;
+    height: 269px;
+    top: 94px;
+    margin: 7px;
+    border-radius: 10px ;
+    opacity: 0px;
+    background-color: #626262;
+
+}
+
+.balance, .expenses{
+    width: 30vw;
+    height: 23vh;
+    top: 140px;
+    left: 90px;
+    gap: 0px;
+    border-radius: 15px ;
+    opacity: 0px;
+    background-color: #9B9B9B;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color: #FFFFFF;
+    /* font-family: Ubuntu; */
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 34.47px;
+    text-align: left;
+    margin: 5px ;
+    margin-left: 15px;
+    
+
+}
+.expenses{
+    margin-right: -5px;
+}
+
+.balance button{
+    background: linear-gradient(90deg, #B5DC52 0%, #89E148 100%);
+    width: 167.65px;
+    height: 38px;
+    top: 245px;
+    left: 183.88px;
+    border-radius: 18px;
+    margin-bottom: 3px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18.38px;
+    text-align: left;
+    color: #FFFFFF;
+    border: #FFFFFF;
+}
+ .expenses button{
+    background: linear-gradient(90deg, #FF9595 0%, #FF4747 80%, #FF3838 100%);
+    width: 167.65px;
+    height: 38px;
+    top: 245px;
+    left: 183.88px;
+    border-radius: 18px;
+    margin-bottom: 3px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18.38px;
+    text-align: left;
+    color: #FFFFFF;
+    border: #FFFFFF;
+}
+
+.title {
+    font-size: 28px;
+    font-style: italic;
+    font-weight: 700;
+    line-height: 32.17px;
+    text-align: left;
+    color: #FFFFFF;
+    width: 261px;
+    height: 32px;
+    top: 399px;
+    left: 32px;
+    gap: 0px;
+    opacity: 0px;
+    
+  }
+
+  .displaybottom{
+    
+    width: 95vw;
+    margin: 26px;
+  }
+
+  .expensel{
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+  }
+
+  .expenselist{
+    width: 738.33px;
+    height: 345.03px;
+    /* top: 440.97px; */
+    /* left: 32px; */
+    /* gap: 0px; */
+    border-radius: 10px;
+    opacity: 0px;
+    background-color: #FFFFFF;
+  }
