@@ -1,7 +1,98 @@
-.popup{
-    background-color: azure;
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    Width:538px;
+Height:335px;
+    z-index: 1;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .inputs {
     display: flex;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-}
+    /* flex-direction: column; */
+    margin: 10px;
+    width: 150px;
+height: 40px;
+background-color: #fff;
+box-shadow: 0px 4px 4px 0 #ccc8c8;
+border-radius: 15px ;
+  }
+  
+  /* .inputs input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 223px;
+    height: 51px;
+    top: 347px;
+    left: 401px;
+
+
+  } */
+ 
+  .categories {
+    display: flex;
+    /* flex-direction: column; */
+    margin-bottom: 10px;
+    width: 223px;
+
+
+
+  }
+  
+  .categories select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .categories input[type="date"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+  }
+  
+  .buttons button[type="submit"] {
+    background-color: #e9e03b;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 223px;
+    height: 51px;
+
+  }
+  
+  .buttons button[type="button"] {
+    background-color: #ccc;
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .cancel {
+    margin-left: 10px;
+  }

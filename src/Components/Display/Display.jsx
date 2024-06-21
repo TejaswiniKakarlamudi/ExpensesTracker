@@ -3,7 +3,13 @@ import styles from './Display.module.css';
 import EditPopup from '../Popup/EditPopup';
 import Piechart from '../Charts/Piechart';
 import HorizontalBarChart from '../Charts/Barchart'; 
-import { HiPencil, HiTrash } from 'react-icons/hi';
+import { FaRegCircleXmark } from "react-icons/fa6";
+import { GrEdit } from "react-icons/gr";
+import { IoPizzaOutline } from "react-icons/io5";//food
+import { FaCaravan } from "react-icons/fa6";//travel
+import { AiFillGift } from "react-icons/ai";//entertainment
+import { MdOutlineHealthAndSafety } from "react-icons/md";//health
+import { BsHouse } from "react-icons/bs";//house
 function Display() {
   const mainBalance = parseFloat(localStorage.getItem('mainbalance')) || 5000; 
   const [balance, setBalance] = useState(mainBalance);
@@ -13,7 +19,7 @@ function Display() {
   const [selectedExpenses, setSelectedExpenses] = useState([
     { accountBalance: 4500 },
     {
-      name: 'Move',
+      name: 'Movie',
       price: 300,
       category: 'Entertainment',
       date: 'March 21,2024'
@@ -74,7 +80,15 @@ function Display() {
     setIsPopupOpen(false);
     setExpenseToEdit(null);
   };
-
+  const addButton = (popupTitle, isPopupOpen) => {
+    if(popupTitle==='Add Expenses'){
+      return 'Add Expense'
+    }else if(popupTitle==='Add Balance'){
+      return 'Add Balance'
+    }else{
+      return 'Add Expense'
+    }
+  }
   const handleSubmit = (formData) => {
     if (popupTitle === 'Add Expense') {
       const newExpense = {
@@ -101,6 +115,22 @@ function Display() {
     setIsPopupOpen(false);
     setExpenseToEdit(null);
   };
+  const renderCategoryIcon = (category) => {
+    switch (category) {
+      case 'Food':
+        return <div className={styles.categoryIcon}><IoPizzaOutline  /></div>;
+      case 'Travel':
+        return <div className={styles.categoryIcon}><FaCaravan /></div>;
+      case 'Entertainment':
+        return <div className={styles.categoryIcon}><AiFillGift/></div>;
+      case 'Health':
+        return <div className={styles.categoryIcon}><MdOutlineHealthAndSafety  /></div>;
+      case 'House':
+        return <div className={styles.categoryIcon}><BsHouse /></div>;
+      default:
+        return <div className={styles.categoryIcon}><FaRegCircleXmark/></div>;
+    }
+  };
 
   return (
     <div className={styles.display}>
@@ -108,7 +138,7 @@ function Display() {
       {isPopupOpen?(
         <EditPopup
           title={popupTitle}
-          button={popupTitle === 'Edit Expense' ? 'Save Changes' : 'Submit'}
+          button={addButton(popupTitle)}
           onCancel={handleCancel}
           onSubmit={handleSubmit}
           expenseToEdit={expenseToEdit}
@@ -131,20 +161,27 @@ function Display() {
           </div>
           <div className={styles.bottomdisplay}>
               <div className={styles.recenttransactions}>
-              <div className={styles.title1}>Recent Transactions</div>
-              <div className={styles.expenselist}>
-                <ul>
-                  {selectedExpenses.slice(1).map((expense, index) => (
-                    expense.name && expense.price && (
-                        <li key={index}>
-                          {expense.name} - ₹ {expense.price}
-                          <button onClick={() => handleEditExpense(expense)}><HiPencil className={styles.icon} /></button>
-                          <button onClick={() => handleDeleteExpense(expense)}><HiTrash className={styles.icon} /></button>
-                        </li>
-                      )
-                    ))}
-                </ul>
-              </div>
+                  <div className={styles.title1}>Recent Transactions</div>
+                  <div className={styles.expenselist}>
+                    <ul>
+                      {selectedExpenses.slice(1).map((expense, index) => (
+                        expense.name && expense.price && (
+                            <li key={index}>
+                              <div className={styles.listitem}>
+                                <div>
+                                  {renderCategoryIcon(expense.category)}
+                                  <div className={styles.listname}>{expense.name} - ₹ {expense.price}</div>
+                                </div>
+                                <div>
+                                <div className={styles.icondelete}><button onClick={() => handleDeleteExpense(expense)}><FaRegCircleXmark/></button></div>
+                                <div className={styles.iconedit}><button onClick={() => handleEditExpense(expense)}><GrEdit  /></button></div>  
+                                </div>                          
+                              </div>
+                            </li>
+                          )
+                        ))}
+                    </ul>
+                  </div>
               </div>        
               <div className={styles.topexpenses}>
                   <div className={styles.title1}>Top Expenses</div>

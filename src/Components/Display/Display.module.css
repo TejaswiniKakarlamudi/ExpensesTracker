@@ -97,43 +97,119 @@
     color: #FFFFFF;
     width: 261px;
     height: 32px;
-    top: 399px;
-    left: 32px;
-    gap: 0px;
-    opacity: 0px;
+    margin: 5px;
     
   }
 
   .bottomdisplay{
-    
-    width: 95vw;
-    margin: 26px;
+    width: 96vw;
+    margin: 1vw;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-
-  /* .expensel{
+  .recenttransactions {
     display: flex;
-    justify-content: space-around;
-    margin: 20px;
+    flex-direction: column;
+    width: 68%;
   }
+  .topexpenses{
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+  }
+  .expenselist{
+    width: 738.33px;
+    height: 300px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+  }
+  ul{
+    width: 738.33px;
+    height: 245.03px;
+    /* top: 440.97px; */
+    left: 32px;
+    list-style-type: none;
 
-  
+  } 
 
-*/
-.expenselist{
-  width: 738.33px;
-  height: 345.03px;
-  border-radius: 10px;
-  opacity: 0px;
-  background-color: #FFFFFF;
+.categoryIcon{
+  color: black;
+  background-color: #D9D9D9;
+  margin: 10px;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+
 }
-ul{
-  width: 738.33px;
-  height: 345.03px;
-  top: 440.97px;
-  left: 32px;
-  gap: 0px;
-  border: 1px 0px 0px 0px;
-  opacity: 0px;
 
-} 
+.listitem{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.expenselist ul {
+  list-style-type: none;
+  padding: 0; 
+}
+
+.expenselist li {
+  margin-bottom: 8px;
+}
+
+.listitem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+}
+
+.listitem > div {
+  display: flex;
+  align-items: center;
+}
+
+.listname {
+  margin-left: 8px;
+}
+
+.icondelete button {
+  background-color: red;
+  color: white;
+  border: 1px solid white;
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  transition: opacity 0.3s ease;
+  font-size: larger;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2px;
+}
+
+.iconedit button {
+  margin: 2px;
+  background-color: yellow;
+  width: 37px;
+  height: 37px;
+  border: 1px solid white;
+  border-radius: 50%;
+  transition: opacity 0.3s ease;
+  color: #FFFFFF;
+  font-size: larger;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icondelete button:hover,
+.iconedit button:hover {
+  opacity: 1;
+}
+

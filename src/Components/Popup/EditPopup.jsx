@@ -69,11 +69,11 @@ function EditPopup({ title, button, onCancel, onSubmit }) {
                 required
               >
                 <option value="">Select Category</option>
-                <option value="food">Food</option>
-                <option value="health">Health</option>
-                <option value="house">House</option>
-                <option value="entertainment">Entertainment</option>
-                <option value="transport">Transport</option>
+                <option value="Food">Food</option>
+                <option value="Health">Health</option>
+                <option value="House">House</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Travel">Travel</option>
               </select>
               <input
                 type="date"
