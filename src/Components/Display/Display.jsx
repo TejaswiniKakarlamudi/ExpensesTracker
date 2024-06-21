@@ -13,17 +13,18 @@ function Display() {
   const [selectedExpenses, setSelectedExpenses] = useState([
     { accountBalance: 4500 },
     {
-      name: 'Samosa',
-      price: 150,
-      category: 'Food',
-      date: 'March 20,2024'
-    },
-    {
       name: 'Move',
       price: 300,
       category: 'Entertainment',
       date: 'March 21,2024'
     },
+    {
+      name: 'Samosa',
+      price: 150,
+      category: 'Food',
+      date: 'March 20,2024'
+    },
+    
     {
       name: 'Auto',
       price: 50,
@@ -103,40 +104,8 @@ function Display() {
 
   return (
     <div className={styles.display}>
-      <div className={styles.topdisplay}>
-        <div className={styles.balance}>
-          Wallet Balance: ₹ {balance.toFixed(2)}
-          <button onClick={handleAddIncome}>+ Add Income</button>
-        </div>
-        <div className={styles.expenses}>
-          Expenses: ₹ {expensesTotal.toFixed(2)}
-          <button onClick={handleAddExpense}>+ Add Expense</button>
-        </div>
-        <div>
-          <Piechart expensesData={selectedExpenses} />
-        </div>
-      </div>
-      <div className={styles.bottomdisplay}>
-      <div>
-        <div className={styles.title}>Recent Transactions</div>
-          <ul>
-            {selectedExpenses.slice(1).map((expense, index) => (
-              expense.name && expense.price && (
-                <li key={index}>
-                  {expense.name} - ₹ {expense.price}
-                  <button onClick={() => handleEditExpense(expense)}>Edit</button>
-                  <button onClick={() => handleDeleteExpense(expense)}>Delete</button>
-                </li>
-              )
-            ))}
-          </ul>
-        </div>         
-        <div>
-          <div className={styles.title}>Top Expenses</div>
-          <HorizontalBarChart expensesData={selectedExpenses} />
-        </div>      
-      </div>
-      {isPopupOpen && (
+      
+      {isPopupOpen?(
         <EditPopup
           title={popupTitle}
           button={popupTitle === 'Edit Expense' ? 'Save Changes' : 'Submit'}
@@ -144,6 +113,45 @@ function Display() {
           onSubmit={handleSubmit}
           expenseToEdit={expenseToEdit}
         />
+      ):(
+        <div>
+          <div className={styles.title}>Expense Tracker</div>
+          <div className={styles.topdisplay}>
+              <div className={styles.balance}>
+                Wallet Balance: ₹ {balance.toFixed(2)}
+                <button onClick={handleAddIncome}>+ Add Income</button>
+              </div>
+              <div className={styles.expenses}>
+                Expenses: ₹ {expensesTotal.toFixed(2)}
+                <button onClick={handleAddExpense}>+ Add Expense</button>
+              </div>
+              <div>
+                <Piechart expensesData={selectedExpenses} />
+              </div>
+          </div>
+          <div className={styles.bottomdisplay}>
+              <div className={styles.recenttransactions}>
+              <div className={styles.title1}>Recent Transactions</div>
+              <div className={styles.expenselist}>
+                <ul>
+                  {selectedExpenses.slice(1).map((expense, index) => (
+                    expense.name && expense.price && (
+                        <li key={index}>
+                          {expense.name} - ₹ {expense.price}
+                          <button onClick={() => handleEditExpense(expense)}><HiPencil className={styles.icon} /></button>
+                          <button onClick={() => handleDeleteExpense(expense)}><HiTrash className={styles.icon} /></button>
+                        </li>
+                      )
+                    ))}
+                </ul>
+              </div>
+              </div>        
+              <div className={styles.topexpenses}>
+                  <div className={styles.title1}>Top Expenses</div>
+                  <HorizontalBarChart expensesData={selectedExpenses} />
+              </div>
+          </div>
+        </div>   
       )}
     </div>
   );

@@ -30,8 +30,8 @@ function EditPopup({ title, button, onCancel, onSubmit }) {
   };
 
   return (
-    <div>
-      <div>{title}</div>
+    <div className={styles.popup}>
+      <div className={styles.title}>{title}</div>
       <form onSubmit={handleSubmit}>
         {title === 'Add Balance' ? (
           <div>
@@ -45,45 +45,49 @@ function EditPopup({ title, button, onCancel, onSubmit }) {
           </div>
         ) : (
           <div>
-            <input
-              type="text"
-              name="name"
-              placeholder="Title"
-              value={formData.name}
-              onChange={handleChange}
-            />
-            <input
-              type="number"
-              name="price"
-              placeholder="Price"
-              value={formData.price}
-              onChange={handleChange}
-            />
-            <select
-              name="category"
-              value={formData.category}
-              onChange={handleChange}
-              required
-            >
-              <option value="">Select Category</option>
-              <option value="food">Food</option>
-              <option value="health">Health</option>
-              <option value="house">House</option>
-              <option value="entertainment">Entertainment</option>
-              <option value="transport">Transport</option>
-            </select>
-            <input
-              type="date"
-              name="date"
-              value={formData.date}
-              onChange={handleChange}
-              required
-            />
+            <div className={styles.inputs}>
+              <input
+                type="text"
+                name="name"
+                placeholder="Title"
+                value={formData.name}
+                onChange={handleChange}
+              />
+              <input
+                type="number"
+                name="price"
+                placeholder="Price"
+                value={formData.price}
+                onChange={handleChange}
+              />
+            </div>
+            <div className={styles.categories}>
+              <select
+                name="category"
+                value={formData.category}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Select Category</option>
+                <option value="food">Food</option>
+                <option value="health">Health</option>
+                <option value="house">House</option>
+                <option value="entertainment">Entertainment</option>
+                <option value="transport">Transport</option>
+              </select>
+              <input
+                type="date"
+                name="date"
+                value={formData.date}
+                onChange={handleChange}
+                required
+              />
+            </div>
           </div>
         )}
-        <div>
+        <div className={styles.buttons}>
           <button type="submit">{button}</button>
-          <button type="button" onClick={onCancel}>Cancel</button>
+          <button type="button" onClick={onCancel} className={styles.cancel}>Cancel</button>
         </div>
       </form>
     </div>

@@ -13,7 +13,7 @@ function LandingPage() {
 
   return (
     <div className={styles.lander}>
-      <div className={styles.title}>Expense Tracker</div>
+      
       <Display/>
     </div>
   );
