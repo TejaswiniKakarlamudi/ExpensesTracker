@@ -3,7 +3,7 @@ import styles from './Display.module.css';
 import EditPopup from '../Popup/EditPopup';
 import Piechart from '../Charts/Piechart';
 import HorizontalBarChart from '../Charts/Barchart'; 
-import { FaRegCircleXmark } from "react-icons/fa6";
+import { FaRegCircleXmark } from "react-icons/fa";
 import { GrEdit } from "react-icons/gr";
 import { IoPizzaOutline } from "react-icons/io5";//food
 import { FaCaravan } from "react-icons/fa6";//travel
