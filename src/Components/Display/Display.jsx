@@ -61,13 +61,13 @@ function Display() {
   };
 
   const handleAddExpense = () => {
-    setPopupTitle('Add Expense');
+    setPopupTitle('Add Expenses');
     setIsPopupOpen(true);
   };
 
   const handleEditExpense = (expense) => {
     setExpenseToEdit(expense);
-    setPopupTitle('Edit Expense');
+    setPopupTitle('Edit Expenses');
     setIsPopupOpen(true);
   };
 
@@ -105,7 +105,7 @@ function Display() {
 
       setSelectedExpenses([...selectedExpenses, newExpense]);
       setBalance(newBalance);
-    } else if (popupTitle === 'Edit Expense') {
+    } else if (popupTitle === 'Edit Expenses') {
       const updatedExpenses = selectedExpenses.map(expense =>
         expense === expenseToEdit ? { ...formData } : expense
       );
