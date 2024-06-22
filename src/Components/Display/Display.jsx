@@ -112,6 +112,7 @@ function Display() {
       setSelectedExpenses(updatedExpenses);
     }else{
       //add amount to balance
+      console.log('balance');
     }
 
     setIsPopupOpen(false);
