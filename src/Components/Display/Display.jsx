@@ -172,9 +172,13 @@ function Display() {
                               <div className={styles.listitem}>
                                 <div>
                                   {renderCategoryIcon(expense.category)}
-                                  <div className={styles.listname}>{expense.name} - ₹ {expense.price}</div>
+                                  <div className={styles.listname}>
+                                    <div>{expense.name}</div>
+                                    <div>{expense.date}</div>
+                                  </div>
                                 </div>
                                 <div>
+                                <div> ₹ {expense.price}</div>
                                 <div className={styles.icondelete}><button onClick={() => handleDeleteExpense(expense)}><HiOutlineXCircle/></button></div>
                                 <div className={styles.iconedit}><button onClick={() => handleEditExpense(expense)}><GrEdit  /></button></div>  
                                 </div>                          
