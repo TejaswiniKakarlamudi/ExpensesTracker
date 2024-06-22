@@ -3,7 +3,7 @@ import styles from './Display.module.css';
 import EditPopup from '../Popup/EditPopup';
 import Piechart from '../Charts/Piechart';
 import HorizontalBarChart from '../Charts/Barchart'; 
-import { FaRegCircleXmark } from "react-icons/fa";
+import { HiOutlineXCircle } from "react-icons/hi2";
 import { GrEdit } from "react-icons/gr";
 import { IoPizzaOutline } from "react-icons/io5";//food
 import { FaCaravan } from "react-icons/fa6";//travel
@@ -128,7 +128,7 @@ function Display() {
       case 'House':
         return <div className={styles.categoryIcon}><BsHouse /></div>;
       default:
-        return <div className={styles.categoryIcon}><FaRegCircleXmark/></div>;
+        return <div className={styles.categoryIcon}><HiOutlineXCircle/></div>;
     }
   };
 
@@ -173,7 +173,7 @@ function Display() {
                                   <div className={styles.listname}>{expense.name} - ₹ {expense.price}</div>
                                 </div>
                                 <div>
-                                <div className={styles.icondelete}><button onClick={() => handleDeleteExpense(expense)}><FaRegCircleXmark/></button></div>
+                                <div className={styles.icondelete}><button onClick={() => handleDeleteExpense(expense)}><HiOutlineXCircle/></button></div>
                                 <div className={styles.iconedit}><button onClick={() => handleEditExpense(expense)}><GrEdit  /></button></div>  
                                 </div>                          
                               </div>
