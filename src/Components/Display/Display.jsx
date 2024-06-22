@@ -110,6 +110,8 @@ function Display() {
         expense === expenseToEdit ? { ...formData } : expense
       );
       setSelectedExpenses(updatedExpenses);
+    }else{
+      //add amount to balance
     }
 
     setIsPopupOpen(false);
