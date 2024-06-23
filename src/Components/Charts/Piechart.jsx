@@ -63,7 +63,7 @@ function Piechart({ expensesData }) {
       <div style={{ display: 'flex', justifyContent: 'center', }}>
         {data.map((entry, index) => (
           <div key={index} style={{ display: 'flex', alignItems: 'center',margin:'2px'}}>
-            <div style={{ width: '20px', height: '10px', backgroundColor: COLORS[index % COLORS.length], marginRight: '5px' }}></div>
+            <div style={{ width: '8px', height: '10px', backgroundColor: COLORS[index % COLORS.length], marginRight: '4px' }}></div>
             <span>{`${entry.name}`}</span>
           </div>
         ))}

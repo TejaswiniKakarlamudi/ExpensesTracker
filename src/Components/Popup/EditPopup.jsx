@@ -34,7 +34,7 @@ function EditPopup({ title, button, onCancel, onSubmit }) {
       <div className={styles.title}>{title}</div>
       <form onSubmit={handleSubmit}>
         {title === 'Add Balance' ? (
-          <div>
+          <div className={styles.inputs}>
             <input
               type='number'
               name="Balance"

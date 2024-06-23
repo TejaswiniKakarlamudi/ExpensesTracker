@@ -4,11 +4,12 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #fff;
-    border-radius: 10px;
+    border-radius: 15px;
     padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     Width:538px;
-Height:335px;
+    max-width: 90%;
+    height:auto;
     z-index: 1;
   }
   
@@ -16,60 +17,54 @@ Height:335px;
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
+    color: #000;
   }
   
   .inputs {
     display: flex;
-    /* flex-direction: column; */
+    justify-content: space-between;
     margin: 10px;
-    width: 150px;
-height: 40px;
-background-color: #fff;
-box-shadow: 0px 4px 4px 0 #ccc8c8;
-border-radius: 15px ;
+    background-color: #fff;
+   
+    border-radius: 15px ;
   }
   
-  /* .inputs input {
+  .inputs input {
+    margin: 10px;
+    width: 40%;
+    height: 10px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-bottom: 10px;
-    width: 223px;
-    height: 51px;
-    top: 347px;
-    left: 401px;
-
-
-  } */
+    box-shadow: 0px 4px 4px 0 #ccc8c8;
+  }
  
   .categories {
     display: flex;
-    /* flex-direction: column; */
-    margin-bottom: 10px;
-    width: 223px;
-
-
-
+    justify-content: space-between;
+    width: 100%;
+    margin: 10px;
   }
   
-  .categories select {
+  .categories select,.categories input[type="date"] {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-bottom: 10px;
+    margin: 10px;
+    box-shadow: 0px 4px 4px 0 #ccc8c8;
+    width: 40%;
+    height: 15px;
+    
   }
-  
-  .categories input[type="date"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 10px;
+  .categories select{
+    height: 35px;
+    width: 45%;
   }
-  
   .buttons {
     display: flex;
     justify-content: space-around;
-    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 80%;
   }
   
   .buttons button[type="submit"] {
@@ -77,11 +72,10 @@ border-radius: 15px ;
     color: #fff;
     padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     cursor: pointer;
-    width: 223px;
+    width: 48%;
     height: 51px;
-
   }
   
   .buttons button[type="button"] {
@@ -89,7 +83,7 @@ border-radius: 15px ;
     color: #000;
     padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     cursor: pointer;
   }
   

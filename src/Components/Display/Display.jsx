@@ -123,7 +123,7 @@ function Display() {
           expenseToEdit={expenseToEdit}
         />
       ) : (
-        <div>
+        <div className={styles.display}>
           <div className={styles.title}>Expense Tracker</div>
           <div className={styles.topdisplay}>
             <div className={styles.balance}>
@@ -134,8 +134,8 @@ function Display() {
               Expenses: ₹ {expensesTotal}
               <button onClick={() => handleAddExpense(setPopupTitle, setIsPopupOpen)}>+ Add Expense</button>
             </div>
-            <div>
-              <Piechart expensesData={selectedExpenses} className={styles.piechart}/>
+            <div className={styles.piechart}>
+              <Piechart expensesData={selectedExpenses} />
             </div>
           </div>
           <div className={styles.bottomdisplay}>
@@ -155,7 +155,7 @@ function Display() {
                             </div>
                           </div>
                           <div>
-                            <div>₹ {expense.price}</div>
+                            <div style={{color:'#917a12'}}>₹ {expense.price}</div>
                             <div className={styles.icondelete}><button onClick={() => handleDeleteExpense(expense, selectedExpenses, setSelectedExpenses, setExpensesChanged)}><HiOutlineXCircle /></button></div>
                             <div className={styles.iconedit}><button onClick={() => handleEditExpense(expense, setExpenseToEdit, setPopupTitle, setIsPopupOpen)}><GrEdit /></button></div>
                           </div>

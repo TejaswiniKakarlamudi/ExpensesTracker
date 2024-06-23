@@ -9,7 +9,7 @@ function HorizontalBarChart({ expensesData }) {
   }));
 
   return (
-    <div style={{ width: '100%', height: '300px', background: 'white', margin: '10px', borderRadius: '10px', overflow: 'hidden' }}>
+    <div style={{ width: '90%', height: '300px', background: 'white', margin: '10px', borderRadius: '10px', overflow: 'hidden' }}>
       <ResponsiveContainer>
         <BarChart data={data} layout="vertical" margin={{ top: 10, right: 20, left: 60, bottom: 10 }}>
           {/* <CartesianGrid strokeDasharray="3 3" /> */}

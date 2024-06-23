@@ -1,11 +1,12 @@
 .display{
-    width: 100vw;
-    height: 100vh;
+    width: 98vw;
+    height: 98vh;
     top: 0px !important;
-    left: 32px;
-    gap: 0px;
     border: 1px 0px 0px 0px;
     opacity: 0px;
+    display: flex;
+    flex-direction: column;
+    margin: 1vh 1vw;
     
 }
 
@@ -14,9 +15,9 @@
     justify-content: space-around;
     align-items: center;
     width: 96vw;
-    height: 269px;
+    height: 35vh;
     top: 94px;
-    margin: 7px;
+    margin:10px;
     border-radius: 10px ;
     opacity: 0px;
     background-color: #626262;
@@ -38,10 +39,10 @@
     flex-direction: column;
     justify-content: space-evenly;
     color: #FFFFFF;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 400;
     line-height: 34.47px;
-    text-align: left;
+    text-align: center;
     margin: 5px ;
     margin-left: 15px;
     
@@ -51,38 +52,33 @@
     margin-right: -5px;
 }
 .piechart{
-  width: 23vh;
-  height: 23vh;
+  width: 26vh;
+  /* height: 23vh; */
+  /* margin: 10px; */
+  /* margin-top: -20px; */
+  
+}
+.balance button, .expenses button{
+    width: 167.65px;
+    height: 38px;
+    top: 245px;
+    left: 183.88px;
+    border-radius: 18px;
+    margin-bottom: 3px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18.38px;
+    text-align: center;
+    color: #FFFFFF;
+    border: #FFFFFF;
 }
 .balance button{
     background: linear-gradient(90deg, #B5DC52 0%, #89E148 100%);
-    width: 167.65px;
-    height: 38px;
-    top: 245px;
-    left: 183.88px;
-    border-radius: 18px;
-    margin-bottom: 3px;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 18.38px;
-    text-align: left;
-    color: #FFFFFF;
-    border: #FFFFFF;
+    
 }
  .expenses button{
     background: linear-gradient(90deg, #FF9595 0%, #FF4747 80%, #FF3838 100%);
-    width: 167.65px;
-    height: 38px;
-    top: 245px;
-    left: 183.88px;
-    border-radius: 18px;
-    margin-bottom: 3px;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 18.38px;
-    text-align: left;
-    color: #FFFFFF;
-    border: #FFFFFF;
+    
 }
 .title{
   color: #FFFFFF;
@@ -93,7 +89,7 @@
   margin: 10px;
 }
 .title1 {
-    font-size: 28px;
+    font-size: 25px;
     font-style: italic;
     font-weight: 700;
     line-height: 32.17px;
@@ -103,39 +99,45 @@
     height: 32px;
     margin: 5px;
     
-  }
+}
 
-  .bottomdisplay{
+.bottomdisplay{
     width: 96vw;
-    margin: 1vw;
+    margin: 1vh 1vw;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .recenttransactions {
-    display: flex;
-    flex-direction: column;
-    width: 68%;
-  }
-  .topexpenses{
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+}
+
+.recenttransactions {
     display: flex;
     flex-direction: column;
-    width: 33%;
-  }
-  .expenselist{
-    width: 738.33px;
+    width: 62vw;
+    margin:1vh 1vw;
+    height: 362px;
+}
+.topexpenses{
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    margin: 1vh 1vw;
+}
+.expenselist{
+    width: auto;
     height: 300px;
     border-radius: 10px;
     background-color: #FFFFFF;
-  }
-  ul{
+    margin: 1vh;
+}
+ul{
     width: 738.33px;
     height: 245.03px;
     /* top: 440.97px; */
     left: 32px;
     list-style-type: none;
+    
 
-  } 
+} 
 
 .categoryIcon{
   color: black;
@@ -149,30 +151,32 @@
   border-radius: 50%;
 
 }
-
-.listitem{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
 .expenselist ul {
   list-style-type: none;
   padding: 0; 
+  width: auto;
 }
-
 .expenselist li {
   margin-bottom: 8px;
+  
 }
-
 .listitem {
+  margin: 5px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 8px;
   background-color: #f0f0f0;
-  border-radius: 8px;
+  position: relative;
 }
-
+.listitem::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 4vw;
+  width: 90%; 
+  border-bottom: 2px solid #b9b3b3;
+}
 .listitem > div {
   display: flex;
   align-items: center;
@@ -184,6 +188,14 @@
 
 .icondelete button {
   background-color: red;
+}
+
+.iconedit button {
+  background-color: yellow;
+  
+}
+
+.icondelete button, .iconedit button {
   color: white;
   border: 1px solid white;
   width: 37px;
@@ -196,24 +208,52 @@
   justify-content: center;
   margin: 2px;
 }
-
-.iconedit button {
-  margin: 2px;
-  background-color: yellow;
-  width: 37px;
-  height: 37px;
-  border: 1px solid white;
-  border-radius: 50%;
-  transition: opacity 0.3s ease;
-  color: #FFFFFF;
-  font-size: larger;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .icondelete button:hover,
 .iconedit button:hover {
   opacity: 1;
 }
 
+@media (max-width: 606px) {
+  .display{
+    height: 100vh;
+    width: 100vw;
+  }
+
+ .topdisplay{
+  flex-direction: column;
+  /* height: 80vh !important;
+  width: 98vw; */
+  height: auto;
+  justify-content: space-evenly;
+  /* background: fixed; */
+ } 
+ .topdisplay button{
+  width: auto;
+  font-size: auto;
+ }
+
+ .balance, .expenses, .piechart{
+  height: auto;
+  width: 80vw;
+  text-align: center;
+  margin: 10px 0;
+ }
+
+ .bottomdisplay{
+  /* height: 96vh; */
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 1px;
+ }
+ .recenttransactions {
+  width: 95%;
+  margin: 1vh 0;
+}
+
+.expenselist, ul {
+  width: auto;
+}
+ .topexpenses{
+  width: auto;
+ }
+}
