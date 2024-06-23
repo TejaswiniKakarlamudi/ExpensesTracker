@@ -10,14 +10,17 @@ import { FaCaravan } from "react-icons/fa6";//travel
 import { AiFillGift } from "react-icons/ai";//entertainment
 import { MdOutlineHealthAndSafety } from "react-icons/md";//health
 import { BsHouse } from "react-icons/bs";//house
+import moment from 'moment';
 function Display() {
   const mainBalance = parseFloat(localStorage.getItem('mainbalance')) || 5000; 
   const [balance, setBalance] = useState(mainBalance);
   const [expensesTotal, setExpensesTotal] = useState(0);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [popupTitle, setPopupTitle] = useState('');
-  const [selectedExpenses, setSelectedExpenses] = useState([
-    { accountBalance: 4500 },
+  const [expenseToEdit, setExpenseToEdit] = useState(null);
+  const [selectedExpenses, setSelectedExpenses] = useState(JSON.parse(localStorage.getItem('selectedExpenses')) ||[
+    { mainBalance:5000,
+      accountBalance: 4500 },
     {
       name: 'Movie',
       price: 300,
@@ -38,11 +41,23 @@ function Display() {
       date: 'March 22,2024'
     }
   ]);
-  const [expenseToEdit, setExpenseToEdit] = useState(null);
+
+  // if(mainBalance!==selectedExpenses[0].accountBalance){
+  //   setBalance(()=>{
+  //     const accountBalance = selectedExpenses[0].accountBalance;
+  //     return accountBalance;
+  //   });
+  // }
+
+  
 
   useEffect(() => {
     calculateInitialExpenses();
-  }, []);
+  }, [selectedExpenses]);
+  useEffect(() => {
+    localStorage.setItem('mainBalance', balance.toString());
+    localStorage.setItem('selectedExpenses', JSON.stringify(selectedExpenses));
+  },[balance, selectedExpenses]);
 
   const calculateInitialExpenses = () => {
     let totalExpenses = 0;
@@ -53,6 +68,7 @@ function Display() {
     });
     setExpensesTotal(totalExpenses);
     setBalance(mainBalance - totalExpenses);
+    
   };
 
   const handleAddIncome = () => {
@@ -65,7 +81,7 @@ function Display() {
     setIsPopupOpen(true);
   };
 
-  const handleEditExpense = (expense) => {
+  const handleEditExpense = (expense,index) => {
     setExpenseToEdit(expense);
     setPopupTitle('Edit Expenses');
     setIsPopupOpen(true);
@@ -80,7 +96,8 @@ function Display() {
     setIsPopupOpen(false);
     setExpenseToEdit(null);
   };
-  const addButton = (popupTitle, isPopupOpen) => {
+
+  const addButton = (popupTitle) => {
     if(popupTitle==='Add Expenses'){
       return 'Add Expense'
     }else if(popupTitle==='Add Balance'){
@@ -90,31 +107,49 @@ function Display() {
     }
   }
   const handleSubmit = (formData) => {
-    if (popupTitle === 'Add Expense') {
-      const newExpense = {
-        ...formData,
-        price: parseFloat(formData.price),
-        date: new Date().toLocaleDateString()
-      };
+    const handleDateChange = (value) => {
+      const formattedDate = moment(value,'YYYY-MM-DD').format('MMMM D, YYYY');
+      return formattedDate;
+    };
+   
 
-      const newBalance = balance - newExpense.price;
+    if (popupTitle === 'Add Expenses') {
+      const newPrice = parseFloat(formData.price);
+      if(isNaN(newPrice)){
+        alert('Please enter a valid price');
+      }
+      const newBalance = balance - newPrice;
       if (newBalance < 0) {
         alert('You cannot spend more than your available balance.');
         return;
       }
-
-      setSelectedExpenses([...selectedExpenses, newExpense]);
+      const newExpense = {
+        ...formData,
+        price: newPrice,
+        date: handleDateChange(formData.date)
+      };
+      console.log(newExpense);
+      setSelectedExpenses(prev=>[...prev, newExpense]);
       setBalance(newBalance);
+      setExpensesTotal(prevTotal=>prevTotal+newPrice);
+      
     } else if (popupTitle === 'Edit Expenses') {
       const updatedExpenses = selectedExpenses.map(expense =>
-        expense === expenseToEdit ? { ...formData } : expense
+        expense === expenseToEdit ? { ...formData,date:handleDateChange(formData.date) } : expense
+        
       );
       setSelectedExpenses(updatedExpenses);
-    }else{
-      //add amount to balance
-      console.log('balance');
+    }else if (popupTitle==='Add Balance'){
+      console.log(formData.Balance);
+      const additionalBalance = parseFloat(formData.Balance);
+      if (isNaN(additionalBalance)) {
+        alert('Please enter a valid balance.');
+        return;
+      }
+      const newBalance = balance + additionalBalance;
+      setBalance(newBalance);
+      console.log("New Balance: ", newBalance);
     }
-
     setIsPopupOpen(false);
     setExpenseToEdit(null);
   };
@@ -151,11 +186,11 @@ function Display() {
           <div className={styles.title}>Expense Tracker</div>
           <div className={styles.topdisplay}>
               <div className={styles.balance}>
-                Wallet Balance: ₹ {balance.toFixed(2)}
+                Wallet Balance: ₹ {balance}
                 <button onClick={handleAddIncome}>+ Add Income</button>
               </div>
               <div className={styles.expenses}>
-                Expenses: ₹ {expensesTotal.toFixed(2)}
+                Expenses: ₹ {expensesTotal}
                 <button onClick={handleAddExpense}>+ Add Expense</button>
               </div>
               <div>
@@ -181,7 +216,7 @@ function Display() {
                                 <div>
                                 <div> ₹ {expense.price}</div>
                                 <div className={styles.icondelete}><button onClick={() => handleDeleteExpense(expense)}><HiOutlineXCircle/></button></div>
-                                <div className={styles.iconedit}><button onClick={() => handleEditExpense(expense)}><GrEdit  /></button></div>  
+                                <div className={styles.iconedit}><button onClick={() => handleEditExpense(expense,index)}><GrEdit  /></button></div>  
                                 </div>                          
                               </div>
                             </li>

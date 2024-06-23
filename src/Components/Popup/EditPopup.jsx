@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './Popup.module.css';
 function EditPopup({ title, button, onCancel, onSubmit }) {
   const [formData, setFormData] = useState({
-    balance: '',
+    Balance: '',
     name: '',
     price: '',
     category: '',
@@ -21,7 +21,7 @@ function EditPopup({ title, button, onCancel, onSubmit }) {
     e.preventDefault();
     onSubmit(formData);
     setFormData({
-      balance: '',
+      Balance: '',
       name: '',
       price: '',
       category: '',
@@ -37,9 +37,9 @@ function EditPopup({ title, button, onCancel, onSubmit }) {
           <div>
             <input
               type='number'
-              name="balance"
+              name="Balance"
               placeholder='Add Balance'
-              value={formData.balance}
+              value={formData.Balance}
               onChange={handleChange}
             />
           </div>
