@@ -1,6 +1,6 @@
 {
-  "short_name": "EXPENSES",
-  "name": "Expenses Tracker Application",
+  "short_name": "Counter",
+  "name": "Counter Application",
   "icons": [
     {
       "src": "./ss.png",

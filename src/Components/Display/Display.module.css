@@ -20,11 +20,12 @@
     border-radius: 10px ;
     opacity: 0px;
     background-color: #626262;
-
 }
-
+.balance{
+  margin-left: -5px;
+}
 .balance, .expenses{
-    width: 30vw;
+    width: 35vw;
     height: 23vh;
     top: 140px;
     left: 90px;
@@ -49,7 +50,10 @@
 .expenses{
     margin-right: -5px;
 }
-
+.piechart{
+  width: 23vh;
+  height: 23vh;
+}
 .balance button{
     background: linear-gradient(90deg, #B5DC52 0%, #89E148 100%);
     width: 167.65px;

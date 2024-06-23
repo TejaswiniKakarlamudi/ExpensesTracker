@@ -28,11 +28,11 @@ function Piechart({ expensesData }) {
   };
 
   const data = calculateCategoryTotals(expensesData);
-  const COLORS = ['#A000FF','#FF9304','#FDE006'] ;
+  const COLORS = ['#A000FF','#FF9304','#FDE006','#0CFFF5','#FF00E6'] ;
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column',alignItems:'flex-end'}}>
-      <ResponsiveContainer width="80%" height={200}>
+      <ResponsiveContainer width="100%" height={200} >
         <PieChart>
           <Pie
             data={data}

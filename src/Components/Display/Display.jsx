@@ -21,7 +21,7 @@ import {
 } from './handlers';
 
 function Display() {
-  const [expensesChanged, setExpensesChanged] = useState(false);
+  const [expensesChanged, setExpensesChanged] = useState(true);
   const initialBalance = parseFloat(localStorage.getItem('mainbalance')) || 5000;
   const [balance, setBalance] = useState(initialBalance);
   const [expensesTotal, setExpensesTotal] = useState(0);
@@ -55,9 +55,6 @@ function Display() {
 
   const [selectedExpenses, setSelectedExpenses] = useState(JSON.parse(localStorage.getItem('selectedExpenses')) || data);
   // localStorage.clear();
-  useEffect(() => {
-    calculateInitialExpenses();
-  }, []);
 
   useEffect(() => {
     if (expensesChanged) {
@@ -138,7 +135,7 @@ function Display() {
               <button onClick={() => handleAddExpense(setPopupTitle, setIsPopupOpen)}>+ Add Expense</button>
             </div>
             <div>
-              <Piechart expensesData={selectedExpenses} />
+              <Piechart expensesData={selectedExpenses} className={styles.piechart}/>
             </div>
           </div>
           <div className={styles.bottomdisplay}>

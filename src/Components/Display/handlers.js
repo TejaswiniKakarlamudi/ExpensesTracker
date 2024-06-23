@@ -78,8 +78,9 @@ export const handleSubmit = (formData, popupTitle, balance,
       alert('Please enter a valid balance.');
       return;
     }
-    const newBalance = balance + additionalBalance;
-    setBalance(newBalance);
+    // const newBalance = balance + additionalBalance;
+    
+    setBalance(prevbalance=>prevbalance+additionalBalance);
     setExpensesChanged(true);
     console.log(balance);
   }
