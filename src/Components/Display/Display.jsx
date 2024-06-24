@@ -19,12 +19,7 @@ import {
   addButton,
   handleSubmit
 } from './handlers';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Keyboard, Scrollbar, Navigation, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/scrollbar';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import Swipe from '../Swipe/swipe';
 function Display() {
   const [expensesChanged, setExpensesChanged] = useState(true);
   const initialBalance = parseFloat(localStorage.getItem('mainbalance')) || 5000;
@@ -146,30 +141,18 @@ function Display() {
           <div className={styles.bottomdisplay}>
             <div className={styles.recenttransactions}>
               <div className={styles.title1}>Recent Transactions</div>
-              <div className={styles.expenselist}>
-                <ul>
-                  {selectedExpenses.map((expense, index) => (
-                    expense.name && expense.price && (
-                      <li key={index}>
-                        <div className={styles.listitem}>
-                          <div>
-                            {renderCategoryIcon(expense.category)}
-                            <div className={styles.listname}>
-                              <div>{expense.name}</div>
-                              <div>{expense.date}</div>
-                            </div>
-                          </div>
-                          <div>
-                            <div style={{color:'#917a12'}}>₹ {expense.price}</div>
-                            <div className={styles.icondelete}><button onClick={() => handleDeleteExpense(expense, selectedExpenses, setSelectedExpenses, setExpensesChanged)}><HiOutlineXCircle /></button></div>
-                            <div className={styles.iconedit}><button onClick={() => handleEditExpense(expense, setExpenseToEdit, setPopupTitle, setIsPopupOpen)}><GrEdit /></button></div>
-                          </div>
-                        </div>
-                      </li>
-                    )
-                  ))}
-                </ul>
-              </div>
+              <Swipe 
+                selectedExpenses={selectedExpenses}
+                renderCategoryIcon={renderCategoryIcon}
+                handleDeleteExpense={handleDeleteExpense}
+                setSelectedExpenses={setSelectedExpenses}
+                setExpensesChanged={setExpensesChanged}
+                handleEditExpense={handleEditExpense}
+                setExpenseToEdit={setExpenseToEdit}
+                setPopupTitle={setPopupTitle}
+                setIsPopupOpen={setIsPopupOpen}
+                
+              />
             </div>
             <div className={styles.topexpenses}>
               <div className={styles.title1}>Top Expenses</div>
