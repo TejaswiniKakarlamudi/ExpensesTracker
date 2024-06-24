@@ -19,7 +19,12 @@ import {
   addButton,
   handleSubmit
 } from './handlers';
-
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Keyboard, Scrollbar, Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/scrollbar';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 function Display() {
   const [expensesChanged, setExpensesChanged] = useState(true);
   const initialBalance = parseFloat(localStorage.getItem('mainbalance')) || 5000;
@@ -128,7 +133,7 @@ function Display() {
           <div className={styles.topdisplay}>
             <div className={styles.balance}>
               Wallet Balance: ₹ {balance}
-              <button onClick={() => handleAddIncome(setPopupTitle, setIsPopupOpen)}>+ Add Income</button>
+              <button onClick={() => handleAddIncome(setPopupTitle, setIsPopupOpen)}>+ Add Balance</button>
             </div>
             <div className={styles.expenses}>
               Expenses: ₹ {expensesTotal}

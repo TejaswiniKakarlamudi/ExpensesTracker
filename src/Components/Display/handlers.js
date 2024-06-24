@@ -80,7 +80,7 @@ export const handleSubmit = (formData, popupTitle, balance,
     }
     // const newBalance = balance + additionalBalance;
     
-    setBalance(prevbalance=>prevbalance+additionalBalance);
+    setBalance(prevbalance => prevbalance+additionalBalance);
     setExpensesChanged(true);
     console.log(balance);
   }
