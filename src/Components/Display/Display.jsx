@@ -21,9 +21,10 @@ import {
 } from './handlers';
 import Swipe from '../Swipe/swipe';
 function Display() {
-  const [expensesChanged, setExpensesChanged] = useState(true);
-  const initialBalance = parseFloat(localStorage.getItem('mainbalance')) || 5000;
-  const [balance, setBalance] = useState(initialBalance);
+  const [expensesChanged, setExpensesChanged] = useState(true); 
+  const initialBalance = parseFloat(localStorage.getItem('mainbalance'));
+  const [balance, setBalance] = useState(!isNaN(initialBalance) ? initialBalance : 5000);
+
   const [expensesTotal, setExpensesTotal] = useState(0);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [popupTitle, setPopupTitle] = useState('');
@@ -53,22 +54,28 @@ function Display() {
     }
   ];
 
-  const [selectedExpenses, setSelectedExpenses] = useState(JSON.parse(localStorage.getItem('selectedExpenses')) || data);
+  const [selectedExpenses, setSelectedExpenses] = useState(JSON.parse(localStorage.getItem('selectedExpenses')) || []);
   // localStorage.clear();
 
+  // Update localStorage for balance
   useEffect(() => {
-    if (expensesChanged) {
-      calculateInitialExpenses();
-      setExpensesChanged(false);
-      // localStorage.setItem('mainbalance', balance.toString());//taking this off on purpose!!!
-    }
-  }, [expensesChanged, selectedExpenses]);
+    localStorage.setItem('mainbalance', balance.toString());
+  }, [balance]);
+
+  // Update localStorage for selectedExpenses
+  useEffect(() => {
+    localStorage.setItem('selectedExpenses', JSON.stringify(selectedExpenses));
+  }, [selectedExpenses]);
+
+  // Update localStorage for total expenses
+  useEffect(() => {
+    localStorage.setItem('totalexpenses', expensesTotal.toString());
+  }, [expensesTotal]);
 
   useEffect(() => {
-    // localStorage.setItem('mainbalance', balance.toString());
-    localStorage.setItem('selectedExpenses', JSON.stringify(selectedExpenses));
-    localStorage.setItem('totalexpenses', expensesTotal.toString());
-  }, [balance, selectedExpenses, expensesTotal]);
+    calculateInitialExpenses();
+  }, [selectedExpenses]);
+
 
   const calculateInitialExpenses = () => {
     let totalExpenses = 0;
