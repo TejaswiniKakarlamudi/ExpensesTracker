@@ -34,7 +34,7 @@ function Display() {
       id: 1,
       name: 'Movie',
       price: 300,
-      category: 'Entertainment',
+      category: 'Event',
       date: 'March 21,2024'
     },
     {
@@ -88,7 +88,7 @@ function Display() {
         return <div className={styles.categoryIcon}><IoPizzaOutline /></div>;
       case 'Travel':
         return <div className={styles.categoryIcon}><FaCaravan /></div>;
-      case 'Entertainment':
+      case 'Event':
         return <div className={styles.categoryIcon}><AiFillGift /></div>;
       case 'Health':
         return <div className={styles.categoryIcon}><MdOutlineHealthAndSafety /></div>;
@@ -124,11 +124,11 @@ function Display() {
         />
       ) : (
         <div className={styles.display}>
-          <div className={styles.title}>Expense Tracker</div>
+          <h1 className={styles.title}>Expense Tracker</h1>
           <div className={styles.topdisplay}>
             <div className={styles.balance}>
               Wallet Balance: ₹ {balance}
-              <button onClick={() => handleAddIncome(setPopupTitle, setIsPopupOpen)}>+ Add Balance</button>
+              <button onClick={() => handleAddIncome(setPopupTitle, setIsPopupOpen)}>+ Add Income</button>
             </div>
             <div className={styles.expenses}>
               Expenses: ₹ {expensesTotal}

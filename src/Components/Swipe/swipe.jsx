@@ -25,10 +25,10 @@ const Swipe = ({ selectedExpenses, renderCategoryIcon, handleDeleteExpense, setS
       >
         {selectedExpenses.map((expense, index) => (
           expense.name && expense.price && (
+            
             <SwiperSlide key={index} className={styles.expenseSlide}>
+              
               <div className={styles.expenselist}>
-                <ul>
-                  <li>
                     <div className={styles.listitem}>
                       <div>
                         {renderCategoryIcon(expense.category)}
@@ -37,7 +37,7 @@ const Swipe = ({ selectedExpenses, renderCategoryIcon, handleDeleteExpense, setS
                         </div>
                       </div>
                       <div>
-                        <div className={styles.price}>₹ {expense.price}</div>
+                        <div className={styles.price}>₹{expense.price}</div>
                         <div className={styles.icondelete}>
                           <button onClick={() => handleDeleteExpense(expense, selectedExpenses, setSelectedExpenses, setExpensesChanged)}>
                             <HiOutlineXCircle />
@@ -50,15 +50,17 @@ const Swipe = ({ selectedExpenses, renderCategoryIcon, handleDeleteExpense, setS
                         </div>
                       </div>
                     </div>
-                    <div style={{ color: '#9B9B9B', fontSize:'14px',fontWeight:'400',marginLeft:'20px', whiteSpace:'nowrap' }}>{expense.date}</div>
-                  </li>
-                </ul>
+                    <div className={styles.date}>{expense.date}</div>
+                  
               </div>
             </SwiperSlide>
+                   
           )
         ))}
+
       </Swiper>
     </div>
+
   );
 };
 

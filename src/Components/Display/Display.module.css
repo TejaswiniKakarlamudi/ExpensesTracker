@@ -1,26 +1,25 @@
 .display{
-    width: 98vw;
+    width: 90vw;
     height: 98vh;
-    top: 0px !important;
-    border: 1px 0px 0px 0px;
-    /* opacity: 0px; */
     display: flex;
     flex-direction: column;
-    margin: 1vh 1vw;
-    
+    margin: 1vh 1vw; 
+    align-items: center;
 }
-
+.recenttransactions{
+  height: 368px;
+}
 .topdisplay{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 96vw;
+    width: 94vw;
     height: 35vh;
     top: 94px;
     margin:10px;
     border-radius: 10px ;
-    /* opacity: 0px; */
     background-color: #626262;
+    padding-top: 20px;
 }
 .balance{
   margin-left: -5px;
@@ -30,9 +29,7 @@
     height: 23vh;
     top: 140px;
     left: 90px;
-    gap: 0px;
     border-radius: 15px ;
-    /* opacity: 0px; */
     background-color: #9B9B9B;
     display: flex;
     align-items: center;
@@ -48,9 +45,9 @@
     
 
 }
-.expenses{
+/* .expenses{
     margin-right: -5px;
-}
+} */
 .piechart{
   width: 26vh;
   /* height: 23vh; */
@@ -64,7 +61,7 @@
     top: 245px;
     left: 183.88px;
     border-radius: 18px;
-    margin-bottom: 3px;
+    margin-bottom: 5px;
     font-size: 16px;
     font-weight: 700;
     line-height: 18.38px;
@@ -85,7 +82,7 @@
   font-size: 32px;
   font-weight: 700;
   line-height: 36.77px;
-  text-align: left;
+  text-align: left !important;
   margin: 10px;
 }
 .title1 {
@@ -102,7 +99,7 @@
 }
 
 .bottomdisplay{
-    width: 96vw;
+    width: 80vw;
     margin: 1vh 1vw;
     display: flex;
     justify-content: space-evenly;
@@ -110,20 +107,17 @@
 }
 
 
-
 @media (max-width: 606px) {
   .display{
     height: 100vh;
-    width: 100vw;
+    width: 100vw !important;
   }
 
  .topdisplay{
   flex-direction: column;
-  /* height: 80vh !important;
-  width: 98vw; */
   height: auto;
   justify-content: space-evenly;
-  /* background: fixed; */
+  width: 90vw !important;
  } 
  .topdisplay button{
   width: auto;
@@ -132,26 +126,37 @@
 
  .balance, .expenses, .piechart{
   height: auto;
-  width: 80vw;
+  width: 70vw;
   text-align: center;
   margin: 10px 0;
  }
 
  .bottomdisplay{
-  /* height: 96vh; */
   flex-direction: column;
   flex-wrap: wrap;
-  margin: 1px;
+  /* margin: 1px; */
+  width: 95vw;
+  font-size: auto;
  }
  .recenttransactions {
-  width: 95%;
-  margin: 1vh 0;
-}
-
-.expenselist, ul {
-  width: auto;
+  width: 90vw ;
+  height: auto;
+  /* margin: 1vh ; */
+  
 }
  .topexpenses{
-  width: auto;
+  width: 90vw !important;
+  margin: 1vh ;
+ }
+
+ .title1{
+  font-size: 3vh !important;
+  font-weight: 2vw !important;
+ }
+ .title{
+  font-size:24px !important;
+  font-weight: 5vw !important;
+  /* width: ; */
+  margin: 0;
  }
 }

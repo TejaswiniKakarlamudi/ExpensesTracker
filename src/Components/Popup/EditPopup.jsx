@@ -72,7 +72,7 @@ function EditPopup({ title, button, onCancel, onSubmit }) {
                 <option value="Food">Food</option>
                 <option value="Health">Health</option>
                 <option value="House">House</option>
-                <option value="Entertainment">Entertainment</option>
+                <option value="Event">Eventt</option>
                 <option value="Travel">Travel</option>
               </select>
               <input
