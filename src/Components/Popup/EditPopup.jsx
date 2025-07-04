@@ -38,7 +38,7 @@ function EditPopup({ title, button, onCancel, onSubmit }) {
             <input
               type='number'
               name="Balance"
-              placeholder='Add Balance'
+              placeholder='Income Amount'
               value={formData.Balance}
               onChange={handleChange}
             />
@@ -48,8 +48,8 @@ function EditPopup({ title, button, onCancel, onSubmit }) {
             <div className={styles.inputs}>
               <input
                 type="text"
-                name="name"
-                placeholder="Title"
+                name="title"
+                placeholder="title"
                 value={formData.name}
                 onChange={handleChange}
               />
